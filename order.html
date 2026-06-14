@@ -4,7 +4,113 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ثبت سفارش | RentLine</title>
-<link rel="stylesheet" href="styles.css">
+<style>
+    :root {
+        --red: #E53935;
+        --navy: #0A0F1C;
+        --dark: #111722;
+        --input: #151A24;
+        --white: #FFFFFF;
+        --radius: 16px;
+        --padding: 18px;
+    }
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        direction: rtl;
+        background: var(--navy);
+        color: var(--white);
+        line-height: 1.7;
+    }
+    .header {
+        padding: 14px var(--padding);
+        background: var(--dark);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+    .header img {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    .header-title {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .header-title .rent { color: #fff; }
+    .header-title .line { color: var(--red); }
+
+    .container {
+        width: 92%;
+        margin: 25px auto;
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 25px;
+        font-size: 20px;
+        color: var(--red);
+    }
+    .field {
+        margin-bottom: 20px;
+    }
+    label {
+        font-size: 14px;
+        margin-bottom: 8px;
+        display: block;
+    }
+    input, textarea {
+        width: 100%;
+        padding: 14px 16px;
+        border-radius: var(--radius);
+        border: none;
+        background: var(--input);
+        color: white;
+        font-size: 15px;
+        outline: none;
+        resize: vertical;
+    }
+    button {
+        width: 100%;
+        padding: 16px;
+        border-radius: var(--radius);
+        border: none;
+        background: var(--red);
+        color: white;
+        font-size: 17px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .call-box {
+        margin-top: 30px;
+        text-align: center;
+        font-size: 14px;
+    }
+    .call-btn {
+        display: block;
+        width: 100%;
+        margin-top: 8px;
+        padding: 10px;
+        border-radius: 12px;
+        background: var(--red);
+        color: white;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: bold;
+    }
+    .back {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 13px;
+    }
+    .back a {
+        color: #ccc;
+        text-decoration: none;
+    }
+</style>
 </head>
 <body>
 
@@ -34,7 +140,7 @@
 
         <div class="field">
             <label>توضیحات (اختیاری)</label>
-            <textarea id="note"></textarea>
+            <textarea id="note" rows="3"></textarea>
         </div>
 
         <button type="submit">ثبت سفارش</button>
@@ -47,10 +153,53 @@
     </div>
 
     <div class="back">
-        <a href="./index.html">بازگشت به صفحه اصلی</a>
+        <a href="index.html">بازگشت به صفحه اصلی</a>
     </div>
 </main>
 
-<script src="app.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const serviceTitle = document.getElementById("serviceTitle");
+    const service = localStorage.getItem("service") || "خدمت انتخابی";
+    serviceTitle.innerText = "ثبت سفارش " + service;
+});
+
+function submitOrder(e) {
+    e.preventDefault();
+
+    const service = localStorage.getItem("service") || "خدمت انتخابی";
+    const fullname = document.getElementById("fullname").value;
+    const phone = document.getElementById("phone").value;
+    const city = document.getElementById("city").value;
+    const note = document.getElementById("note").value;
+
+    const message =
+      `📩 سفارش جدید RentLine\n\n` +
+      `🛠 خدمت: ${service}\n` +
+      `👤 نام: ${fullname}\n` +
+      `📞 تماس: ${phone}\n` +
+      (city ? `📍 شهر: ${city}\n` : "") +
+      (note ? `📝 توضیحات: ${note}\n` : "");
+
+    const BOT_TOKEN = "8651428332:AAGpbn00xxtrJbTgSNggaR5U5P7TAlxP3Mg";
+    const CHAT_ID = "5303030568";
+
+    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: CHAT_ID,
+        text: message
+      })
+    })
+    .then(() => {
+      alert("سفارش با موفقیت ارسال شد ✔️");
+      e.target.reset();
+    })
+    .catch(() => {
+      alert("❌ خطا در ارسال سفارش");
+    });
+}
+</script>
 </body>
 </html>
