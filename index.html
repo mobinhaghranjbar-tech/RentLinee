@@ -4,7 +4,131 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RentLine | اجاره تجهیزات مراسم</title>
-<link rel="stylesheet" href="styles.css">
+<style>
+    :root {
+        --red: #E53935;
+        --navy: #0A0F1C;
+        --dark: #111722;
+        --white: #FFFFFF;
+        --radius: 16px;
+        --padding: 18px;
+    }
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        direction: rtl;
+        background: var(--navy);
+        color: var(--white);
+        line-height: 1.7;
+    }
+    .header {
+        padding: 14px var(--padding);
+        background: var(--dark);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+    .header img {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    .header-title {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .header-title .rent { color: #fff; }
+    .header-title .line { color: var(--red); }
+
+    .hero {
+        padding: 40px var(--padding);
+        text-align: center;
+        background: var(--dark);
+    }
+    .hero h2 { margin-bottom: 8px; }
+    .hero p { margin-bottom: 20px; font-size: 14px; opacity: 0.9; }
+    .hero-btn {
+        width: 100%;
+        padding: 14px;
+        border-radius: var(--radius);
+        border: none;
+        background: var(--red);
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .section {
+        padding: 25px var(--padding);
+    }
+    .section-title {
+        font-size: 18px;
+        margin-bottom: 18px;
+        color: var(--red);
+        text-align: center;
+    }
+    .cards {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+    .card {
+        border-radius: var(--radius);
+        padding: 14px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        background: #fff;
+        color: #222;
+    }
+    .card-img {
+        width: 70px;
+        height: 70px;
+        border-radius: 12px;
+        object-fit: cover;
+    }
+    .card-title {
+        font-size: 16px;
+        margin-bottom: 6px;
+        color: var(--red);
+        font-weight: bold;
+    }
+    .card-text {
+        font-size: 13px;
+        opacity: 0.85;
+    }
+
+    .contact-box {
+        background: #1A2233;
+        border-radius: var(--radius);
+        padding: var(--padding);
+        text-align: center;
+        margin-top: 20px;
+    }
+    .call-btn {
+        display: block;
+        width: 100%;
+        margin-top: 8px;
+        padding: 10px;
+        border-radius: 12px;
+        background: var(--red);
+        color: white;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    .footer {
+        padding: 15px;
+        text-align: center;
+        font-size: 12px;
+        opacity: 0.6;
+    }
+</style>
 </head>
 <body>
 
@@ -23,7 +147,7 @@
     <h3 class="section-title">خدمات ما</h3>
     <div class="cards">
 
-        <div class="card card-tv" onclick="goToOrder('تلویزیون شهری')">
+        <div class="card" onclick="goToOrder('تلویزیون شهری')">
             <img src="images/videowall.jpg" class="card-img" alt="تلویزیون شهری">
             <div>
                 <h4 class="card-title">تلویزیون شهری</h4>
@@ -31,7 +155,7 @@
             </div>
         </div>
 
-        <div class="card card-sound" onclick="goToOrder('سیستم صوت حرفه‌ای')">
+        <div class="card" onclick="goToOrder('سیستم صوت حرفه‌ای')">
             <img src="images/sound.jpg" class="card-img" alt="سیستم صوت">
             <div>
                 <h4 class="card-title">سیستم صوت حرفه‌ای</h4>
@@ -53,6 +177,12 @@
 
 <footer class="footer">© تمامی حقوق برای RentLine محفوظ است.</footer>
 
-<script src="app.js"></script>
+<script>
+function goToOrder(service) {
+    localStorage.setItem("service", service);
+    // این خط مهمه: همیشه به order.html در همین پوشه می‌ره
+    window.location.href = "order.html";
+}
+</script>
 </body>
-  </html>
+</html>
