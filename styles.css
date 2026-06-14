@@ -1,0 +1,148 @@
+:root {
+    --red: #E53935;
+    --navy: #0A0F1C;
+    --dark: #111722;
+    --input: #151A24;
+    --white: #FFFFFF;
+    --radius: 16px;
+    --padding: 18px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    direction: rtl;
+    background: var(--navy);
+    color: var(--white);
+    line-height: 1.7;
+}
+
+/* هدر */
+.header {
+    padding: 14px var(--padding);
+    background: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.header img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.header-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.header-title .rent { color: #fff; }
+.header-title .line { color: var(--red); }
+
+/* بنر */
+.hero {
+    padding: 40px var(--padding);
+    text-align: center;
+    background: var(--dark);
+}
+
+.hero-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: var(--radius);
+    border: none;
+    background: var(--red);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* کارت‌ها */
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.card {
+    border-radius: var(--radius);
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #fff;
+    color: #222;
+}
+
+.card-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+/* تماس */
+.contact-box {
+    background: #1A2233;
+    border-radius: var(--radius);
+    padding: var(--padding);
+    text-align: center;
+    margin-top: 20px;
+}
+
+.call-btn {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+    padding: 10px;
+    border-radius: 12px;
+    background: var(--red);
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* فرم */
+.container {
+    width: 92%;
+    margin: 25px auto;
+}
+
+.field {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: var(--radius);
+    border: none;
+    background: var(--input);
+    color: white;
+    font-size: 15px;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 16px;
+    border-radius: var(--radius);
+    border: none;
+    background: var(--red);
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
