@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ثبت سفارش | RentLine</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="header">
+    <img src="images/logo.png" alt="logo">
+    <h1 class="header-title"><span class="rent">Rent</span><span class="line">Line</span></h1>
+</header>
+
+<main class="container">
+    <h2 id="serviceTitle">ثبت سفارش</h2>
+
+    <form onsubmit="submitOrder(event)">
+        <div class="field">
+            <label>نام و نام خانوادگی</label>
+            <input type="text" id="fullname" required>
+        </div>
+
+        <div class="field">
+            <label>شماره تماس</label>
+            <input type="text" id="phone" required>
+        </div>
+
+        <div class="field">
+            <label>شهر / محل برگزاری</label>
+            <input type="text" id="city">
+        </div>
+
+        <div class="field">
+            <label>توضیحات (اختیاری)</label>
+            <textarea id="note"></textarea>
+        </div>
+
+        <button type="submit">ثبت سفارش</button>
+    </form>
+
+    <div class="call-box">
+        <p>یا برای تماس مستقیم:</p>
+        <a href="tel:09025566524" class="call-btn">📞 09025566524</a>
+        <a href="tel:09025566525" class="call-btn">📞 09025566525</a>
+    </div>
+
+    <div class="back">
+        <a href="./index.html">بازگشت به صفحه اصلی</a>
+    </div>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
