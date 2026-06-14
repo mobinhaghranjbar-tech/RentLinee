@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RentLine | اجاره تجهیزات مراسم</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="header">
+    <img src="images/logo.png" alt="logo">
+    <h1 class="header-title"><span class="rent">Rent</span><span class="line">Line</span></h1>
+</header>
+
+<section class="hero">
+    <h2>اجاره تلویزیون شهری و سیستم صوت</h2>
+    <p>مناسب مراسم، جشن‌ها، همایش‌ها و رویدادهای بزرگ</p>
+    <button class="hero-btn" onclick="goToOrder('تلویزیون شهری')">ثبت سفارش</button>
+</section>
+
+<section class="section">
+    <h3 class="section-title">خدمات ما</h3>
+    <div class="cards">
+
+        <div class="card card-tv" onclick="goToOrder('تلویزیون شهری')">
+            <img src="images/videowall.jpg" class="card-img" alt="تلویزیون شهری">
+            <div>
+                <h4 class="card-title">تلویزیون شهری</h4>
+                <p class="card-text">کیفیت تصویر بالا، نصب سریع و پشتیبانی کامل</p>
+            </div>
+        </div>
+
+        <div class="card card-sound" onclick="goToOrder('سیستم صوت حرفه‌ای')">
+            <img src="images/sound.jpg" class="card-img" alt="سیستم صوت">
+            <div>
+                <h4 class="card-title">سیستم صوت حرفه‌ای</h4>
+                <p class="card-text">بلندگو، میکسر، میکروفن — اجرای بدون نقص</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="section">
+    <h3 class="section-title">تماس با RentLine</h3>
+    <div class="contact-box">
+        <p>برای رزرو و مشاوره تماس بگیرید:</p>
+        <a href="tel:09025566524" class="call-btn">📞 09025566524</a>
+        <a href="tel:09025566525" class="call-btn">📞 09025566525</a>
+    </div>
+</section>
+
+<footer class="footer">© تمامی حقوق برای RentLine محفوظ است.</footer>
+
+<script src="app.js"></script>
+</body>
+  </html>
